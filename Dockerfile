@@ -14,6 +14,7 @@ RUN curl -O https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz \
     && tar xf node-v12.13.1-linux-x64.tar.xz \
     && mv node-v12.13.1-linux-x64 /usr/local/nodejs \
     && rm -f node-v12.13.1-linux-x64.tar.xz \
+	&& ln -s /usr/local/openjdk-8/ /usr/local/java \
     && echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 ENV NODE_HOME="/usr/local/nodejs"
