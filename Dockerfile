@@ -23,6 +23,9 @@ ENV NODE_HOME="/usr/local/nodejs"
 ENV MAVEN_HOME="/usr/local/maven"
 ENV PATH=${PATH}:${NODE_HOME}/bin:$MAVEN_HOME/bin
 
-RUN npm install -g cnpm --registry=https://registry.npm.taobao.org
+RUN npm install -g cnpm --registry=https://registry.npm.taobao.org \
+    && git config --global user.email "jenkins@example.com" \
+    && git config --global user.name "jenkins" \
+    && git config --global credential.helper store
 
 ENTRYPOINT ["jenkins-agent"]
