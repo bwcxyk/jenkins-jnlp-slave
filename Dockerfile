@@ -3,6 +3,8 @@ FROM jenkins/inbound-agent:latest-jdk8
 
 USER root
 RUN set -x \
+    && apt update \
+    && apt install curl wget -y \
     && wget https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz \
     && tar zxvf docker-latest.tgz \
     && cp docker/docker /usr/local/bin/ \
