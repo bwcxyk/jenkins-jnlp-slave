@@ -1,5 +1,5 @@
 # base
-FROM jenkins/inbound-agent:latest
+FROM jenkins/inbound-agent:latest-jdk8
 
 USER root
 RUN curl -O https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz \
