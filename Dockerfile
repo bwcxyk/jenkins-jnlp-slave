@@ -5,18 +5,18 @@ USER root
 RUN set -x \
     && apt update \
     && apt install curl wget -y \
-    && wget https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz \
-    && tar zxvf docker-latest.tgz \
+    && curl -OL https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz \
+    && tar -zxf docker-latest.tgz \
     && cp docker/docker /usr/local/bin/ \
     && rm -rf docker docker-latest.tgz \
-    && wget https://archive.apache.org/dist/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz \
-    && tar zxvf apache-maven-3.6.2-bin.tar.gz \
+    && curl -OL https://archive.apache.org/dist/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz \
+    && tar -zxf apache-maven-3.6.2-bin.tar.gz \
     && mv apache-maven-3.6.2 /usr/local/maven \
     && rm -f apache-maven-3.6.2-bin.tar.gz \
-    && wget https://npm.taobao.org/mirrors/node/v12.13.1/node-v12.13.1-linux-x64.tar.xz \
-    && tar xf node-v12.13.1-linux-x64.tar.xz \
+    && curl -OL https://npm.taobao.org/mirrors/node/v12.13.1/node-v12.13.1-linux-x64.tar.gz \
+    && tar -zxf node-v12.13.1-linux-x64.tar.gz \
     && mv node-v12.13.1-linux-x64 /usr/local/nodejs \
-    && rm -f node-v12.13.1-linux-x64.tar.xz \
+    && rm -f node-v12.13.1-linux-x64.tar.gz \
     && ln -s /usr/local/openjdk-8/ /usr/local/java \
     && echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 
