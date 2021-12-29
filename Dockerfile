@@ -27,6 +27,9 @@ ENV MAVEN_HOME="/usr/local/maven"
 ENV PATH=${PATH}:${NODE_HOME}/bin:$MAVEN_HOME/bin
 
 RUN npm install -g cnpm --registry=https://registry.npm.taobao.org \
+    # 配置npm私有仓库
+    && npm config set registry http://192.168.1.200:8081/nexus/repository/npm-group/ \
+    && cnpm config set registry http://192.168.1.200:8081/nexus/repository/npm-group/ \
     && git config --global user.email "jenkins@example.com" \
     && git config --global user.name "jenkins" \
     && git config --global credential.helper store
