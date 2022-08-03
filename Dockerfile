@@ -1,5 +1,5 @@
 # base
-FROM jenkins/inbound-agent:latest-jdk11
+FROM jenkins/inbound-agent:latest-jdk8
 
 USER root
 RUN set -x \
